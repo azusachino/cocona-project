@@ -1,5 +1,6 @@
 package icu.azusachino.kokona.config
 
+import org.mybatis.spring.annotation.MapperScan
 import org.springframework.context.annotation.Configuration
 
 /**
@@ -14,6 +15,7 @@ class SecurityConfig {
 }
 
 @Configuration
+@MapperScan(basePackages = ["icu.azusachino.kokona.mapper"])
 class WebConfig {
 
 }

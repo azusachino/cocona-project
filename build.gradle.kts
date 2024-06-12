@@ -6,9 +6,13 @@ plugins {
     kotlin("plugin.spring") version "1.9.24"
 }
 
+
+
 group = "icu.azusachino"
-version = "0.0.1-SNAPSHOT"
+version = findProperty("version") as String
 java.sourceCompatibility = JavaVersion.VERSION_21
+
+defaultTasks("build")
 
 java {
     toolchain {
@@ -26,9 +30,6 @@ repositories {
     mavenCentral()
 }
 
-// dependencies version control
-val mybatisPlusVersion = "3.5.6"
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
@@ -42,8 +43,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     // database
-    implementation("com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion")
-    runtimeOnly("postgresql:postgresql")
+    implementation("com.baomidou:mybatis-plus-boot-starter:${findProperty("mybatisPlusVersion")}")
+//    runtimeOnly("postgresql:postgresql")
     runtimeOnly("com.h2database:h2")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
