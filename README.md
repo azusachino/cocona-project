@@ -1,2 +1,3 @@
-# cocona-project
-kotlin &amp; gradle exploration
+# kokona-project
+
+kotlin & gradle exploration
