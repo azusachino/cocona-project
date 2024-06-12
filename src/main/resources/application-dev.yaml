@@ -14,8 +14,9 @@ spring:
       path: /h2-console
   data:
     redis:
-      host: okj-redis-headless.okj-exchange-env-base.svc.cluster.local
+      host: ${VALKEY_HOST}
+      password: ${VALKEY_PASSWORD}
 
 logging:
   file:
-    path: target/logs
+    path: build/logs
